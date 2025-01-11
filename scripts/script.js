@@ -38,11 +38,12 @@ let gameOver = false;
 let topPipeImg;
 let bottomPipeImg;
 
-let bgm = new Audio('./background-music.m4a');
+let bgm = new Audio('/sound_fx/background-music.m4a');
 bgm.loop = true;
-let hitSound = new Audio('sfx_hit.wav');
-let wingSound = new Audio('sfx_wing.wav');
-let pointSound = new Audio('sfx_point.wav');
+let hitSound = new Audio('/sound_fx/sfx_hit.wav');
+let wingSound = new Audio('/sound_fx/sfx_wing.wav');
+let pointSound = new Audio('/sound_fx/sfx_point.wav');
+
 window.onload = function() {
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -57,17 +58,17 @@ window.onload = function() {
     
     
     birdImg = new Image();
-    birdImg.src = './flappybird.png';
+    birdImg.src = '/images/flappybird.png';
     
     birdImg.onload = function() {
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
     }
     
     topPipeImg = new Image();
-    topPipeImg.src = './toppipe.png';
+    topPipeImg.src = '/images/toppipe.png';
     
     bottomPipeImg = new Image();
-    bottomPipeImg.src = './bottompipe.png';
+    bottomPipeImg.src = '/images/bottompipe.png';
     
     requestAnimationFrame(update);
     setInterval(placePipes, 1500);
