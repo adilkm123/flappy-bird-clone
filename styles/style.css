@@ -7,13 +7,20 @@ body{
 
 #board{
   background-image: url("/images/flappybirdbg.png"); 
+  border: 5px solid #A2A2A5;
 }
 #div{
-  background-color: grey;
-  color: white;
-  font-weight: 900;
-  text-align: centre;
-  font-size: 3em;
-  height : 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #A2A2A5;
+  height :100px;
   width: 100%;
+  color: white;   
+  font-weight: 900;
+  font-size: 3em;
+  transition: background-color 0.1s ease-out;
+}
+#div:active{
+  background-color: #767676;
 }
