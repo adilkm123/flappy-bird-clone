@@ -1,7 +1,12 @@
 //board
 let board;
+
 let boardHeight = 640;
 let boardWidth = 360;
+
+
+//let boardWidth = window.innerWidth;
+//let boardHeight = window.innerHeight;
 
 let context;
 
@@ -62,9 +67,11 @@ window.onload = function() {
   board.width = boardWidth;
   context = board.getContext("2d");
   
+  
   //loading bird image 
   birdImg = new Image();
   birdImg.src = '/images/flappybird.png';
+  
   
   //drawing bird on the canvas on image loaded
   birdImg.onload = function() {
@@ -86,7 +93,6 @@ window.onload = function() {
   
   //make the bird jump when clicking on the screen 
   document.addEventListener("click",moveBird);
-  document.getElementById("div").addEventListener("click",moveBird);
 }
 
 
