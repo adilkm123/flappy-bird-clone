@@ -23,6 +23,7 @@ let bird = {
 
 //initialise score 
 let score = 0;
+let highScore = 0;
 
 
 // pipes
@@ -52,6 +53,8 @@ let pointSound = new Audio('/sound_fx/sfx_point.wav');
 
 //on game loaded 
 window.onload = function() {
+  
+  highScore = parseInt(localStorage.getItem("highScore")) || 0;
   //get the canvas 
   board = document.getElementById("board");
   //setting dimensions 
@@ -92,6 +95,7 @@ function update() {
   //to make animation on browser 
   requestAnimationFrame(update);
   
+
   //stops the game when game over 
   if(gameOver){
     return;
@@ -135,6 +139,7 @@ function update() {
     
     //game over when brid collide with the pipe
     if(detectCollision(bird, pipe)){
+      
       gameOver = true;
     }
   }
@@ -158,8 +163,10 @@ function update() {
  //initialising the text styles
   context.fillStyle = "yellow";
   context.font = "45px san-serif";
+  
   //score text position 
   context.fillText(score, 5 , 45);
+  context.fillText(highScore,5, 95);
   
 }
   
@@ -215,6 +222,16 @@ function moveBird(e){
   
   //resetting the properties when game over 
   if(gameOver){
+    
+      //local storage for high score 
+      
+      
+     if(score>highScore){
+       localStorage.setItem("highScore", score);
+       highScore = score;
+     }
+  
+    
     bird.y = birdY//reset the birds position 
     pipeArray = [];//clear the pipes stored
     score = 0;//reset score
@@ -225,6 +242,8 @@ function moveBird(e){
 
 //for checking collision of bird with pipes
 function detectCollision(a,b) {
+  
+  
   return a.x < b.x + b.width &&
          a.x + a.width > b.x &&
          a.y < b.y + b.height &&

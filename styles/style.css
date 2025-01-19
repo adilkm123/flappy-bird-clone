@@ -1,26 +1,28 @@
-body{
+jbody{
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+
+.gameBoard{
+  background: cyan;
+  width: 100vw;
+  height: 100vh;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border:2px solid red;
+}
+
 #board{
   background-image: url("/images/flappybirdbg.png"); 
   border: 5px solid #A2A2A5;
+ 
 }
-#div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #A2A2A5;
-  height :100px;
-  width: 100%;
-  color: white;   
-  font-weight: 900;
-  font-size: 3em;
-  transition: background-color 0.1s ease-out;
-}
-#div:active{
-  background-color: #767676;
-}
+
+
