@@ -93,6 +93,7 @@ window.onload = function() {
   
   //make the bird jump when clicking on the screen 
   document.addEventListener("click",moveBird);
+  
   document.addEventListener("keypress",moveBird);
 }
 
